@@ -41,27 +41,34 @@ cDegrees.addEventListener("click", tempConversionTwo);
 function searchCity(event) {
   event.preventDefault();
   let city = document.querySelector("#search-input").value;
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = `${city}`;
   searchEng(city);
 }
-let form = document.querySelector("#city-search");
-form.addEventListener("submit", searchCity);
 
-function searchEng() {
-  let cityName = document.querySelector("#search-input").value;
+function searchEng(city) {
   let apiKey = "adda405da08f4e0af2c4bf326ccdff5a";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
 
 function showTemperature(response) {
+  console.log(response);
+  document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector(".tempActual").innerHTML = Math.round(
     response.data.main.temp
   );
-  let description = (document.querySelector("h5").innerHTML =
-    response.data.weather[0].description);
+  document.querySelector("h5").innerHTML = response.data.weather[0].description;
+  document.querySelector(
+    "#pressure"
+  ).innerHTML = `Atm Pressure: ${response.data.main.pressure} hPa`;
+  document.querySelector(
+    "#humidity"
+  ).innerHTML = `Humidity: ${response.data.main.humidity} %`;
+  let wind = Math.round(response.data.wind.speed);
+  document.querySelector("#wind").innerHTML = `Wind: ${wind} km/h`;
 }
+
+let form = document.querySelector("#city-search");
+form.addEventListener("submit", searchCity);
 
 function coordinates(event) {
   event.preventDefault();
@@ -82,7 +89,17 @@ function geolocationTemp(response) {
     response.data.main.temp
   );
   document.querySelector("h5").innerHTML = response.data.weather[0].description;
+  document.querySelector(
+    "#pressure"
+  ).innerHTML = `Atm Pressure: ${response.data.main.pressure}hPa`;
+  document.querySelector(
+    "#humidity"
+  ).innerHTML = `Humidity: ${response.data.main.humidity}%`;
+  let wind = Math.round(response.data.wind.speed);
+  document.querySelector("#wind").innerHTML = `Wind: ${wind}km/h`;
 }
 
 let currentLocation = document.querySelector("#geolocation");
 currentLocation.addEventListener("click", coordinates);
+
+searchEng("Quito");
