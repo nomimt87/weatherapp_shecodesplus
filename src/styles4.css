@@ -4,6 +4,7 @@
   padding: 10px 30px 30px 30px;
   border: 2px solid #000000;
   border-radius: 20px;
+  width: 100%;
 }
 header {
   margin: 0;
@@ -115,4 +116,8 @@ h2 {
   background-color: #f9dbdb;
   border: 1px solid;
   border-radius: 5px;
+}
+.gitSource {
+  display: inline-block;
+  padding: 0 500px;
 }
