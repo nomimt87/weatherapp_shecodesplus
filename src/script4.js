@@ -56,11 +56,11 @@ function searchEng() {
 }
 
 function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let dailyTemp = document.querySelector(".tempActual");
-  dailyTemp.innerHTML = `${temperature}`;
-  let description = document.querySelector("h5");
-  description.innerHTML = response.data.weather[0].description;
+  document.querySelector(".tempActual").innerHTML = Math.round(
+    response.data.main.temp
+  );
+  let description = (document.querySelector("h5").innerHTML =
+    response.data.weather[0].description);
 }
 
 function coordinates(event) {
@@ -77,14 +77,11 @@ function retrievePosition(position) {
 }
 
 function geolocationTemp(response) {
-  let city = response.data.name;
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = `${city}`;
-  let temperature = Math.round(response.data.main.temp);
-  let dailyTemp = document.querySelector(".tempActual");
-  dailyTemp.innerHTML = `${temperature}`;
-  let description = document.querySelector("h5");
-  description.innerHTML = response.data.weather[0].description;
+  document.querySelector("h1").innerHTML = response.data.name;
+  document.querySelector(".tempActual").innerHTML = Math.round(
+    response.data.main.temp
+  );
+  document.querySelector("h5").innerHTML = response.data.weather[0].description;
 }
 
 let currentLocation = document.querySelector("#geolocation");
