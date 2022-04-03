@@ -1,10 +1,12 @@
 .retainer {
   max-width: 810px;
   margin: 30px auto;
+  margin-bottom: 10px;
   padding: 10px 30px 30px 30px;
-  border: 2px solid #000000;
+  border: 1px solid #bec2cb;
   border-radius: 20px;
   width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 header {
   margin: 0;
@@ -19,7 +21,7 @@ header {
 }
 .left {
   flex: 0 0 50%;
-  border: 2px solid #bec2cb;
+  border: 1px solid #bec2cb;
   border-radius: 20px;
   padding: 12px 15px;
   margin-right: 30px;
@@ -37,14 +39,17 @@ h1 {
 }
 h5 {
   font-weight: 700;
-  font-size: 17px;
+  font-size: 15px;
+  font-style: italic;
 }
 .data {
   list-style: none;
   padding: 0;
+  margin: 20px 0 0 0;
 }
 .stats {
-  padding: 4px 0;
+  padding: 5px 0;
+  font-size: 14px;
 }
 .daily {
   float: right;
@@ -61,7 +66,7 @@ h5 {
 }
 .right {
   flex: 0 0 45%;
-  border: 2px solid #bec2cb;
+  border: 1px solid #bec2cb;
   border-radius: 20px;
   padding: 15px 10px;
 }
@@ -80,13 +85,13 @@ h2 {
   font-weight: bolder;
 }
 .day {
-  font-size: 18px;
+  font-size: 20px;
   text-align: right;
 }
 .row {
-  padding: 11px 0;
+  padding: 15px 0;
   margin: 2px 0 2px 2px;
-  border: 2px solid #f9f9fd;
+  border: 2px solid #ffffff;
   border-radius: 12px;
   background-color: #d9edc2;
 }
@@ -120,4 +125,5 @@ h2 {
 .gitSource {
   display: inline-block;
   padding: 0 500px;
+  margin: 0;
 }

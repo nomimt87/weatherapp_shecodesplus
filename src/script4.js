@@ -59,7 +59,7 @@ function showTemperature(response) {
   document.querySelector("h5").innerHTML = response.data.weather[0].description;
   document.querySelector(
     "#pressure"
-  ).innerHTML = `Atm Pressure: ${response.data.main.pressure} hPa`;
+  ).innerHTML = `Pressure: ${response.data.main.pressure} hPa`;
   document.querySelector(
     "#humidity"
   ).innerHTML = `Humidity: ${response.data.main.humidity} %`;
@@ -91,12 +91,12 @@ function geolocationTemp(response) {
   document.querySelector("h5").innerHTML = response.data.weather[0].description;
   document.querySelector(
     "#pressure"
-  ).innerHTML = `Atm Pressure: ${response.data.main.pressure}hPa`;
+  ).innerHTML = `Pressure: ${response.data.main.pressure} hPa`;
   document.querySelector(
     "#humidity"
   ).innerHTML = `Humidity: ${response.data.main.humidity}%`;
   let wind = Math.round(response.data.wind.speed);
-  document.querySelector("#wind").innerHTML = `Wind: ${wind}km/h`;
+  document.querySelector("#wind").innerHTML = `Wind: ${wind} km/h`;
 }
 
 let currentLocation = document.querySelector("#geolocation");
