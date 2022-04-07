@@ -1,40 +1,38 @@
-let now = new Date();
-let timeDisplay = document.querySelector("#currentDisplay");
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-let hours = now.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${day} ${hours}:${minutes}`;
 }
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-timeDisplay.innerHTML = `${day} ${hours}:${minutes}`;
 
-//C & F buttons
-
-function tempConversion() {
-  let conversionTemp = document.querySelector(".tempActual");
-  conversionTemp.innerHTML = `68`;
+function sunRiseSet(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
 }
-let fDegrees = document.querySelector("#fahrenheit");
-fDegrees.addEventListener("click", tempConversion);
-
-function tempConversionTwo() {
-  let conversionReturn = document.querySelector(".tempActual");
-  conversionReturn.innerHTML = "20";
-}
-let cDegrees = document.querySelector("#celsius");
-cDegrees.addEventListener("click", tempConversionTwo);
 
 // Weather and Geolocation WK5
 
@@ -56,15 +54,24 @@ function showTemperature(response) {
   document.querySelector(".tempActual").innerHTML = Math.round(
     response.data.main.temp
   );
+  document.querySelector("#currentDisplay").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
   document.querySelector("h5").innerHTML = response.data.weather[0].description;
   document.querySelector(
     "#pressure"
-  ).innerHTML = `Pressure: ${response.data.main.pressure} hPa`;
+  ).innerHTML = `${response.data.main.pressure}`;
   document.querySelector(
     "#humidity"
-  ).innerHTML = `Humidity: ${response.data.main.humidity} %`;
+  ).innerHTML = `${response.data.main.humidity}`;
   let wind = Math.round(response.data.wind.speed);
-  document.querySelector("#wind").innerHTML = `Wind: ${wind} km/h`;
+  document.querySelector("#wind").innerHTML = `${wind}`;
+  document.querySelector("#sunrise").innerHTML = sunRiseSet(
+    response.data.sys.sunrise * 1000
+  );
+  document.querySelector("#sunset").innerHTML = sunRiseSet(
+    response.data.sys.sunset * 1000
+  );
 }
 
 let form = document.querySelector("#city-search");
@@ -88,18 +95,43 @@ function geolocationTemp(response) {
   document.querySelector(".tempActual").innerHTML = Math.round(
     response.data.main.temp
   );
+  document.querySelector("#currentDisplay").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
   document.querySelector("h5").innerHTML = response.data.weather[0].description;
   document.querySelector(
     "#pressure"
-  ).innerHTML = `Pressure: ${response.data.main.pressure} hPa`;
+  ).innerHTML = `${response.data.main.pressure}`;
   document.querySelector(
     "#humidity"
-  ).innerHTML = `Humidity: ${response.data.main.humidity}%`;
+  ).innerHTML = `${response.data.main.humidity}`;
   let wind = Math.round(response.data.wind.speed);
-  document.querySelector("#wind").innerHTML = `Wind: ${wind} km/h`;
+  document.querySelector("#wind").innerHTML = `${wind}`;
+  document.querySelector("#sunrise").innerHTML = sunRiseSet(
+    response.data.sys.sunrise * 1000
+  );
+  document.querySelector("#sunset").innerHTML = sunRiseSet(
+    response.data.sys.sunset * 1000
+  );
 }
 
 let currentLocation = document.querySelector("#geolocation");
 currentLocation.addEventListener("click", coordinates);
 
 searchEng("Quito");
+
+//C & F buttons
+
+function tempConversion() {
+  let conversionTemp = document.querySelector(".tempActual");
+  conversionTemp.innerHTML = `68`;
+}
+let fDegrees = document.querySelector("#fahrenheit");
+fDegrees.addEventListener("click", tempConversion);
+
+function tempConversionTwo() {
+  let conversionReturn = document.querySelector(".tempActual");
+  conversionReturn.innerHTML = "20";
+}
+let cDegrees = document.querySelector("#celsius");
+cDegrees.addEventListener("click", tempConversionTwo);
