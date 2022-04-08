@@ -1,5 +1,5 @@
 .retainer {
-  max-width: 810px;
+  max-width: 750px;
   margin: 30px auto;
   margin-bottom: 10px;
   padding: 10px 30px 30px 30px;
@@ -9,12 +9,8 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 header {
-  margin: 0;
-  padding: 5px;
-}
-.app-icon {
-  max-width: 100px;
-  padding-left: 10px;
+  margin: 10px 0 10px 10px;
+  padding: 10px 0 10px 10px;
 }
 .columns {
   display: flex;
@@ -23,10 +19,8 @@ header {
   flex: 0 0 50%;
   border: 1px solid #bec2cb;
   border-radius: 20px;
-  padding: 12px 15px;
+  padding: 12px 0 12px 15px;
   margin-right: 30px;
-  background-color: #d8ecf7;
-  background-clip: content-box;
 }
 h1 {
   margin: 0;
@@ -38,6 +32,7 @@ h1 {
   font-size: 12px;
 }
 h5 {
+  margin: 20px 0;
   font-weight: 700;
   font-size: 15px;
   font-style: italic;
@@ -106,27 +101,29 @@ h2 {
 }
 #city-search {
   display: inline;
-  padding-left: 30px;
+  padding-left: 250px;
   font-size: 17px;
 }
 #search-input {
-  padding-right: 150px;
+  padding-right: 100px;
   border: 1px solid;
   border-radius: 5px;
 }
 #geolocation {
   font-size: 17px;
-  background-color: #fef5c4;
-  border: 1px solid;
+  background-color: #bec2cb;
+  color: #ffffff;
+  border: 1px solid black;
   border-radius: 5px;
 }
 #enter-city {
-  background-color: #f9dbdb;
-  border: 1px solid;
+  background-color: #bec2cb;
+  color: #ffffff;
+  border: 1px solid black;
   border-radius: 5px;
 }
 .gitSource {
   display: inline-block;
-  padding: 0 500px;
+  padding: 0 450px;
   margin: 0;
 }
