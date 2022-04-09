@@ -101,6 +101,14 @@ h2 {
 .degrees {
   font-size: 18px;
 }
+.degrees .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+  text-decoration: none;
+}
+.degrees .active:hover {
+  text-decoration: none;
+}
 #city-search {
   display: inline;
   padding-left: 250px;

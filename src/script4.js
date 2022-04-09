@@ -34,8 +34,6 @@ function sunRiseSet(timestamp) {
   return `${hours}:${minutes}`;
 }
 
-// Weather and Geolocation WK5
-
 function searchCity(event) {
   event.preventDefault();
   let city = document.querySelector("#search-input").value;
@@ -81,6 +79,7 @@ function showTemperature(response) {
   document
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
+  celsiusTemperature = response.data.main.temp;
 }
 
 let form = document.querySelector("#city-search");
@@ -131,25 +130,36 @@ function geolocationTemp(response) {
   document
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
+  celsiusTemperature = response.data.main.temp;
 }
 
 let currentLocation = document.querySelector("#geolocation");
 currentLocation.addEventListener("click", coordinates);
 
-searchEng("Quito");
-
-//C & F buttons
-
-function tempConversion() {
-  let conversionTemp = document.querySelector(".tempActual");
-  conversionTemp.innerHTML = `68`;
+function fahrenheitTemp(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  document.querySelector(".tempActual").innerHTML = Math.round(
+    fahrenheitTemperature
+  );
+  cDegrees.classList.remove("active");
+  fDegrees.classList.add("active");
 }
+
+function celsiusTemp(event) {
+  event.preventDefault();
+  document.querySelector(".tempActual").innerHTML =
+    Math.round(celsiusTemperature);
+  fDegrees.classList.remove("active");
+  cDegrees.classList.add("active");
+}
+
 let fDegrees = document.querySelector("#fahrenheit");
-fDegrees.addEventListener("click", tempConversion);
+fDegrees.addEventListener("click", fahrenheitTemp);
 
-function tempConversionTwo() {
-  let conversionReturn = document.querySelector(".tempActual");
-  conversionReturn.innerHTML = "20";
-}
 let cDegrees = document.querySelector("#celsius");
-cDegrees.addEventListener("click", tempConversionTwo);
+cDegrees.addEventListener("click", celsiusTemp);
+
+let celsiusTemperature = null;
+
+searchEng("Quito");
