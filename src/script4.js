@@ -154,6 +154,34 @@ function celsiusTemp(event) {
   cDegrees.classList.add("active");
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-4">
+       <strong class="day">${day}</strong>
+      </div>
+      <div class="col-4">
+        <img
+          class="five"
+          src="http://openweathermap.org/img/wn/50d@2x.png"
+          alt=""
+        />
+      </div>
+      <div class="col-4">
+        <span class="maxTemp">19 </span>/
+        <span class="minTemp">12</span> <span class="unit">°C</span>
+      </div>
+     `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let fDegrees = document.querySelector("#fahrenheit");
 fDegrees.addEventListener("click", fahrenheitTemp);
 
@@ -163,3 +191,5 @@ cDegrees.addEventListener("click", celsiusTemp);
 let celsiusTemperature = null;
 
 searchEng("Quito");
+
+displayForecast();
