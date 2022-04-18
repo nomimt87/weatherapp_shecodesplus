@@ -99,16 +99,9 @@ h2 {
   padding-left: 5px;
 }
 .degrees {
-  font-size: 18px;
+  font-size: 20px;
 }
-.degrees .active {
-  color: rgb(33, 33, 33);
-  cursor: default;
-  text-decoration: none;
-}
-.degrees .active:hover {
-  text-decoration: none;
-}
+
 #city-search {
   display: inline;
   padding-left: 250px;
