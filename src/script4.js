@@ -144,24 +144,6 @@ function geolocationTemp(response) {
 let currentLocation = document.querySelector("#geolocation");
 currentLocation.addEventListener("click", coordinates);
 
-function fahrenheitTemp(event) {
-  event.preventDefault();
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  document.querySelector(".tempActual").innerHTML = Math.round(
-    fahrenheitTemperature
-  );
-  cDegrees.classList.remove("active");
-  fDegrees.classList.add("active");
-}
-
-function celsiusTemp(event) {
-  event.preventDefault();
-  document.querySelector(".tempActual").innerHTML =
-    Math.round(celsiusTemperature);
-  fDegrees.classList.remove("active");
-  cDegrees.classList.add("active");
-}
-
 function formatForecast(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -213,12 +195,6 @@ function displayForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
-let fDegrees = document.querySelector("#fahrenheit");
-fDegrees.addEventListener("click", fahrenheitTemp);
-
-let cDegrees = document.querySelector("#celsius");
-cDegrees.addEventListener("click", celsiusTemp);
 
 let celsiusTemperature = null;
 
