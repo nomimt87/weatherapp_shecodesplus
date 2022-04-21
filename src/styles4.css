@@ -6,7 +6,8 @@
   border: 1px solid #ffffff;
   border-radius: 20px;
   width: 100%;
-  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
   background: #ffffff;
 }
 .columns {
@@ -18,7 +19,8 @@
   border-radius: 20px;
   padding: 12px 0;
   margin-right: 30px;
-  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
 h1 {
   margin: 0 15px;
@@ -81,7 +83,8 @@ h5:first-letter {
   border-radius: 20px;
   padding: 15px 10px;
   font-family: "Darker Grotesque", sans-serif;
-  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
 .day-outlook {
   list-style: none;
@@ -151,7 +154,7 @@ h2 {
   padding: 6px 20px;
 }
 #gitSource {
-  display: flex
+  display: flex;
   margin: 0 auto;
   flex-wrap: wrap;
   text-align: center;
