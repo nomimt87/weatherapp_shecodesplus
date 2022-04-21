@@ -11,6 +11,10 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One:ital@0;1&family=Darker+Grotesque:wght@300;400&family=Economica:ital,wght@0,400;0,700;1,400;1,700&family=Fredericka+the+Great&family=Fugaz+One&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Shizuru&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="src/styles4.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
@@ -18,16 +22,23 @@
     <div class="retainer">
       <header>
         <span class="searchBar">
-          <form id="city-search">
-            <input
-              type="search"
-              placeholder="Enter a city"
-              autocomplete="off"
-              autofocus="off"
-              id="search-input"
-            />
-            <input type="submit" value="Search" id="enter-city" />
-            <input type="submit" value="🧭" id="geolocation" />
+          <form id="city-search" class="mb-2">
+            <div class="row" id="search-bar">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Search for a city"
+                  autocomplete="off"
+                  autofocus="off"
+                  id="search-input"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-3">
+                <input type="submit" value="Search" id="enter-city" />
+                <input type="submit" value="🧭" id="geolocation" />
+              </div>
+            </div>
           </form>
         </span>
       </header>
@@ -37,26 +48,21 @@
           <div class="info">
             <strong class="time">Last Updated</strong><br />
             <div id="currentDisplay"></div>
-            <div class="daily">
-              <p>
-                <img
-                  class="daily-forecast"
-                  src=""
-                  alt="rain cloud"
-                  id="icon"
-                /><br />
-                <span class="tempActual"></span>
-                <span class="degrees"> °C</span>
-              </p>
-            </div>
+            <p class="daily">
+              <img
+                class="daily-forecast"
+                src=""
+                alt="rain cloud"
+                id="icon"
+              /><br />
+              <span class="tempActual"></span>
+              <span class="degrees"> °C</span>
+            </p>
           </div>
           <h5></h5>
           <ul class="data">
-            <li class="stats">Pressure: <span id="pressure"></span> hPa</li>
-            <li class="stats">Humidity: <span id="humidity"></span> %</li>
-            <li class="stats">Wind: <span id="wind"></span> km/h</li>
-            <li class="stats">Sunrise: <span id="sunrise"></span></li>
-            <li class="stats">Sunset: <span id="sunset"></span></li>
+            <li class="stats">💦 Humidity: <span id="humidity"></span> %</li>
+            <li class="stats">🍃 Wind: <span id="wind"></span> km/h</li>
           </ul>
         </div>
         <div class="right">
@@ -64,16 +70,18 @@
         </div>
       </div>
     </div>
-    <div class="gitSource">
-      <small class="git">
-        <a
-          href="https://github.com/nomimt87/weatherapp_shecodesplus"
-          target="_blank"
-          class="gitLink"
-          >Open-source code</a
-        >
-        by Norma Torres
-      </small>
+    <div class="row-container" id="gitSource">
+      <div class="col-9" id="source">
+        <small>
+          <a
+            href="https://github.com/nomimt87/weatherapp_shecodesplus"
+            target="_blank"
+            class="gitLink"
+            >Open-source code</a
+          >
+          by Norma T.
+        </small>
+      </div>
     </div>
     <script src="src/script4.js"></script>
   </body>

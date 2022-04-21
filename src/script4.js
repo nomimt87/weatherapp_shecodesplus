@@ -21,19 +21,6 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function sunRiseSet(timestamp) {
-  let date = new Date(timestamp);
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-  return `${hours}:${minutes}`;
-}
-
 function getForecast(coordinates) {
   let apiKey = "adda405da08f4e0af2c4bf326ccdff5a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
@@ -63,19 +50,11 @@ function showTemperature(response) {
   );
   document.querySelector("h5").innerHTML = response.data.weather[0].description;
   document.querySelector(
-    "#pressure"
-  ).innerHTML = `${response.data.main.pressure}`;
-  document.querySelector(
     "#humidity"
   ).innerHTML = `${response.data.main.humidity}`;
-  let wind = Math.round(response.data.wind.speed);
-  document.querySelector("#wind").innerHTML = `${wind}`;
-  document.querySelector("#sunrise").innerHTML = sunRiseSet(
-    response.data.sys.sunrise * 1000
-  );
-  document.querySelector("#sunset").innerHTML = sunRiseSet(
-    response.data.sys.sunset * 1000
-  );
+  let wind = response.data.wind.speed;
+  let windKm = Math.round((wind * 18) / 5);
+  document.querySelector("#wind").innerHTML = `${windKm}`;
   document
     .querySelector("#icon")
     .setAttribute(
@@ -115,19 +94,11 @@ function geolocationTemp(response) {
   );
   document.querySelector("h5").innerHTML = response.data.weather[0].description;
   document.querySelector(
-    "#pressure"
-  ).innerHTML = `${response.data.main.pressure}`;
-  document.querySelector(
     "#humidity"
   ).innerHTML = `${response.data.main.humidity}`;
-  let wind = Math.round(response.data.wind.speed);
-  document.querySelector("#wind").innerHTML = `${wind}`;
-  document.querySelector("#sunrise").innerHTML = sunRiseSet(
-    response.data.sys.sunrise * 1000
-  );
-  document.querySelector("#sunset").innerHTML = sunRiseSet(
-    response.data.sys.sunset * 1000
-  );
+  let wind = response.data.wind.speed;
+  let windKm = Math.round((wind * 18) / 5);
+  document.querySelector("#wind").innerHTML = `${windKm}`;
   document
     .querySelector("#icon")
     .setAttribute(
