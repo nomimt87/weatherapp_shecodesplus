@@ -40,7 +40,6 @@ function searchEng(city) {
 }
 
 function showTemperature(response) {
-  console.log(response);
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector(".tempActual").innerHTML = Math.round(
     response.data.main.temp
